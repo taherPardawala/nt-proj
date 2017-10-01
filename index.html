@@ -1,0 +1,27 @@
+<html>
+
+<head></head>
+
+<body>
+    <form id="myForm">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit" value 'Login'>
+    </form>
+</body>
+<script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+<script>
+    //var formData = JSON.stringify($("#myForm").serializeArray());
+    var formData = $("#myForm").serializeArray();
+    alert(formData);
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:3000/login",
+        data: [{"username":"taher", "password":"123"}],
+        success: function () { },
+        dataType: "json",
+        contentType: "application/json"
+    });
+</script>
+
+</html>
