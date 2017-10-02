@@ -37,14 +37,33 @@ app.post('/registerUser',async (req,res)=>{
     }
 });
 
-app.post('/registerAdmin',async (req,res)=>{
-    console.log(req.body);
-    let result = await db.accounts.find({username:req.body.username,password:req.body.password},{username:1,_id:0}).toArray();
+app.get('/getName',async (req,res)=>{
+    let result = await db.users.find({username:req.headers.username},{name:1,username:1,_id:0}).toArray();
     if(result.length !== 0){
         log(result);
-        res.json({ok:true,message:"Login successful",username:result});
+        res.json({ok:true,result:result});
     }else{
-        res.json({ok:false,message:"Login Failed"});
+        res.json({ok:false,message:"Something went wrong"});
+    }
+});
+
+app.get('/getCard',async (req,res)=>{
+    let result = await db.users.find({username:req.headers.username},{cvv:1,cardNum:1,username:1,_id:0}).toArray();
+    if(result.length !== 0){
+        log(result);
+        res.json({ok:true,result:result});
+    }else{
+        res.json({ok:false,message:"Something went wrong"});
+    }
+});
+
+app.get('/getPhoneNum',async (req,res)=>{
+    let result = await db.users.find({username:req.headers.username},{phoneNum:1,username:1,_id:0}).toArray();
+    if(result.length !== 0){
+        log(result);
+        res.json({ok:true,result:result});
+    }else{
+        res.json({ok:false,message:"Something went wrong"});
     }
 });
 

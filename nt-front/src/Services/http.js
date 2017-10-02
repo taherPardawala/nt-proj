@@ -22,6 +22,42 @@ export default {
             .catch(function (error) {
                 console.error(error);
             });
+    },
+    getName: (username) => {
+        return axios.get(baseUri + '/getName', { headers:{
+            username:username
+        } })
+            .then(function (response) {
+                console.log(response);
+                return response.data;
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    },
+    getCard: (username) => {
+        return axios.get(baseUri + '/getCard', { headers:{
+            username:username
+        } })
+            .then(function (response) {
+                console.log(response);
+                return response.data;
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    },
+    getPhoneNum: (username) => {
+        return axios.get(baseUri + '/getPhoneNum', { headers:{
+            username:username
+        } })
+            .then(function (response) {
+                console.log(response);
+                return response.data;
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
     }
 
 }

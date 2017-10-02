@@ -13,7 +13,6 @@
 <script>
   import http from '@/Services/http';
   import router from '@/router';
-  
   export default {
     name: 'login',
     data() {
@@ -30,7 +29,6 @@
       }
     }
   }
-  
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
