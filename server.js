@@ -82,11 +82,11 @@ app.get('/getPhoneNum',async (req,res)=>{
 });
 
 app.get('/getUsers',async (req,res)=>{
-    console.log(req.query['username'])
     let check = await db.accounts.findOne({username:req.query['username']},{accountType:1,_id:0});
     console.log(check);
     if(check.hasOwnProperty('accountType') && check.accountType === 1){
-        let result = await db.users.find({},{_id:0}).toArray();
+        let result = await db.users.find({username:req.query['user']},{_id:0}).toArray();
+        console.log(result)
         if(result.length !== 0){
             log(result);
             res.json({ok:true,result:result});

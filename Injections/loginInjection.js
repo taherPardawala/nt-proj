@@ -13,4 +13,5 @@ axios.post('http://localhost:3000/login',{
 
 /*
 localStorage.setItem('vuex','{"user":{"username":"taher","accountType":1}}')
+localStorage.setItem('vuex','{"user":{ "username": "deepak", "accountType": 10 }}')
  */

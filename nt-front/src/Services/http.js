@@ -53,8 +53,8 @@ export default {
                 console.error(error);
             });
     },
-    getUsers: () => {
-        return axios.get(baseUri + '/getUsers?username='+username)
+    getUsers: (username, user) => {
+        return axios.get(baseUri + '/getUsers?username='+username+'&user='+user)
         .then(function (response) {
             console.log(response);
             return response.data;
