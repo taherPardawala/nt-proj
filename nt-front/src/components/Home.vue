@@ -74,10 +74,3 @@
     width:500px;
   }
 </style>
-
-/*
-Storage {vuex: "{"user":{"username":"qweqwe"}", length: 1}
-vuex
-:
-"{"user":{"username":"qweqwe"}"
-*/

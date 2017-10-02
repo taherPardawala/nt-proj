@@ -38,9 +38,10 @@
         http.login(self.username, self.password).then(success => {
           if (success.ok) {
             if (success.result[0].accountType === 10) {
-              this.$store.commit('user',{username:success.result[0].username});
+              this.$store.commit('user',{username:success.result[0].username, accountType:success.result[0].accountType});
               router.replace('/home');
             } else {
+              this.$store.commit('user',{username:success.result[0].username, accountType:success.result[0].accountType});
               router.replace('/adminhome')
             }
           } else {
@@ -49,9 +50,11 @@
         });
       },
       init: function(){
-        console.log(this.$store.getters.user);
-        if(this.$store.getters.user.hasOwnProperty('username')){
-          router.replace('/home');
+        if(this.$store.getters.user !=null && this.$store.getters.user.hasOwnProperty('username')){
+          if(this.$store.getters.user.accountType == 10)
+            router.replace('/home');
+          else
+            router.replace('/adminhome')
         }
       }
     },

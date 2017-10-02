@@ -49,7 +49,7 @@
           router.replace('/login');
         }
       },
-      logout: () => {
+      logout: function(){
         this.$store.dispatch('clearAuth');
         router.replace('/login');
       }

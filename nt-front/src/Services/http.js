@@ -24,9 +24,7 @@ export default {
             });
     },
     getName: (username) => {
-        return axios.get(baseUri + '/getName', { headers:{
-            username:username
-        } })
+        return axios.get(baseUri + '/getName?username='+username)
             .then(function (response) {
                 console.log(response);
                 return response.data;
@@ -36,9 +34,7 @@ export default {
             });
     },
     getCard: (username) => {
-        return axios.get(baseUri + '/getCard', { headers:{
-            username:username
-        } })
+        return axios.get(baseUri + '/getCard?username='+username)
             .then(function (response) {
                 console.log(response);
                 return response.data;
@@ -48,9 +44,7 @@ export default {
             });
     },
     getPhoneNum: (username) => {
-        return axios.get(baseUri + '/getPhoneNum', { headers:{
-            username:username
-        } })
+        return axios.get(baseUri + '/getPhoneNum?username='+username)
             .then(function (response) {
                 console.log(response);
                 return response.data;
@@ -58,6 +52,16 @@ export default {
             .catch(function (error) {
                 console.error(error);
             });
+    },
+    getUsers: () => {
+        return axios.get(baseUri + '/getUsers?username='+username)
+        .then(function (response) {
+            console.log(response);
+            return response.data;
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
     }
 
 }
